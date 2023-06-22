@@ -1,0 +1,6 @@
+{
+	"base_path": "/home/serafeim",
+	"project_slug": "cutter",
+	"repo": "https://github.com/spapas/{{ cookiecutter.project_slug }}/",
+	"python": "python3.10"
+}

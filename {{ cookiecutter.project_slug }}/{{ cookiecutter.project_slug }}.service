@@ -1,0 +1,18 @@
+[Unit]
+Description={{ cookiecutter.project_slug }} app server
+After=network.target
+
+[Service]
+Type=simple
+User=serafeim
+ExecStart={{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/venv/bin/gunicorn -c {{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/gunicorn.ini.py  --chdir={{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/ wsgi
+WorkingDirectory={{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/
+Restart=always
+KillMode=process
+RestartSec=5
+
+Environment=DJANGO_SETTINGS_MODULE={{ cookiecutter.project_slug }}.settings.prod
+
+
+[Install]
+WantedBy=multi-user.target
