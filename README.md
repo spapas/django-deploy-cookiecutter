@@ -15,6 +15,8 @@ For everything to work smoothly you need to:
 * Servce your static files from /home/serafeim/project/static
 * Keep logs on /home/serafeim/project/logs
 * Keep your venv on /home/serafeim/project/venv
+* Use a requirements/prod.txt file for your requirements
+* Use the project/settings/prod.py file for your production settings
 
 You can see my [etsd](https://github.com/spapas/etsd) project for the correct project layout.
 
