@@ -5,9 +5,9 @@ def max_workers():
     return 2
     #return  cpu_count() -1
 
-bind = ['unix:{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/gunicorn.sock', ]
-chdir = '{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/'
-pidfile = '{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/gunicorn.pid'
+bind = ['unix:{{ cookiecutter.__gunicorn_socket }}', ]
+chdir = '{{ cookiecutter.__project_path }}/{{ cookiecutter.project_slug }}/'
+pidfile = '{{ cookiecutter.__project_path }}/gunicorn.pid'
 
 proc_name = '{{ cookiecutter.project_slug }}'
 timeout = 300
@@ -17,7 +17,7 @@ max_requests = 1000
 max_requests_jitter = 10
 capture_output = True
 
-errorlog = '{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/logs/gunicorn_error.log'
+errorlog = '{{ cookiecutter.__project_path }}/logs/gunicorn_error.log'
 loglevel = 'info'
-accesslog = '{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/logs/gunicorn_access.log'
+accesslog = '{{ cookiecutter.__project_path }}/logs/gunicorn_access.log'
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
