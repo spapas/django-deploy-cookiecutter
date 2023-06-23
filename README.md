@@ -23,7 +23,14 @@ You can see my [etsd](https://github.com/spapas/etsd) project for the correct pr
 
 ## Usage
 
-You can use this cookiecutter by answering to the questions to create a bunch of useful files. Then run `./deploy.sh` to see the steps needed for deployment, for example:
+You can use this cookiecutter by answering to the questions to create a bunch of useful files:
+
+* A gunicorn.ini.py file for your project (this should be put inside your project dir; if you already have one ignore it)
+* An etc/nginx/conf.d/project.conf with nginx configuration to serve your project and static files
+* A etc/systemd/system/project.service file to control your gunicorn instance
+* An optional etc/systemd/system/redis.service and a redis.conf file to control a redis instance for your app (if you don't need redis just ignore them)
+
+Then run `./deploy.sh` to see the steps needed for deployment, for example:
 
 ```bash
 cd /home/serafeim
@@ -45,4 +52,6 @@ sudo cp etc/nginx/conf.d/project.conf /etc/nginx/conf.d/project.conf
 sudo cp etc/systemd/system/project.service /etc/systemd/system/project.service
 # CP gunicorn conf if needed
 cat gunicorn.ini.py
+# Optional redis
+sudo cp etc/systemd/system/project-redis.service /etc/systemd/system/project-redis.service
 ```

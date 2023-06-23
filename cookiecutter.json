@@ -4,6 +4,7 @@
 	"repo": "https://github.com/spapas/{{ cookiecutter.project_slug }}/",
 	"server_name": "{{ cookiecutter.project_slug }}.hcg.gr",
 	"python": "python3.10",
+	"user": "serafeim",
 	"__project_path": "{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}",
 	"__gunicorn_socket": "{{ cookiecutter.__project_path }}/gunicorn.sock"
 }

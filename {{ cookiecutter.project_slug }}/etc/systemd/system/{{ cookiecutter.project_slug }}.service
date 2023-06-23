@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=serafeim
+User={{ cookiecutter.user }}
 ExecStart={{ cookiecutter.__project_path }}/venv/bin/gunicorn -c {{ cookiecutter.__project_path }}/{{ cookiecutter.project_slug }}/gunicorn.ini.py  --chdir={{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/{{ cookiecutter.project_slug }}/ wsgi
 WorkingDirectory={{ cookiecutter.__project_path }}/
 Restart=always

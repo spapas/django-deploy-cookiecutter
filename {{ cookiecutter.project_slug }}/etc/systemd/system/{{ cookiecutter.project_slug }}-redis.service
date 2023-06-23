@@ -1,0 +1,14 @@
+[Unit]
+Description={{ cookiecutter.project_slug }} Redis server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/redis-server {{ cookiecutter.__project_path }}/redis/redis.conf --supervised systemd
+ExecStop=/usr/bin/redis-cli -s {{ cookiecutter.__project_path }}/redis.sock shutdown
+Type=notify
+User={{ cookiecutter.user }}
+
+[Install]
+WantedBy=multi-user.target
