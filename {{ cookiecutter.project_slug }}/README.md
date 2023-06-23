@@ -21,26 +21,24 @@ You can see my [etsd](https://github.com/spapas/etsd) project for the correct pr
 
 ## Usage
 
-You can use this cookiecutter by answering to the questions to create a bunch of useful files. Then run `./deploy.sh` to see the steps needed for deployment, for example:
-
 ```bash
-cd /home/serafeim
+cd {{ cookiecutter.base_path }}
 # Clone repo
-git clone https://github.com/spapas/project/ project
+git clone {{ cookiecutter.repo }} {{ cookiecutter.project_slug }}
 # Go to project dir
-cd project
+cd {{ cookiecutter.project_slug }}
 # Create venv
-python3.10 -m venv venv
+{{ cookiecutter.python }} -m venv venv
 # Fix venv settings
-echo DJANGO_SETTINGS_MODULE=project.settings.prod >> venv/bin/activate
+echo DJANGO_SETTINGS_MODULE={{ cookiecutter.project_slug }}.settings.prod >> venv/bin/activate
 # Activate venv
 source venv/bin/activate
 # Install requirements
-pip install -r project/requirements/prod.txt
+pip install -r {{ cookiecutter.project_slug}}/requirements/prod.txt
 # CP nginx conf
-sudo cp etc/nginx/conf.d/project.conf /etc/nginx/conf.d/project.conf
+sudo cp etc/nginx/conf.d/{{ cookiecutter.project_slug}}.conf /etc/nginx/conf.d/{{ cookiecutter.project_slug}}.conf
 # CP systemd conf
-sudo cp etc/systemd/system/project.service /etc/systemd/system/project.service
+sudo cp etc/systemd/system/{{ cookiecutter.project_slug}}.service /etc/systemd/system/{{ cookiecutter.project_slug}}.service
 # CP gunicorn conf if needed
 cat gunicorn.ini.py
 ```
