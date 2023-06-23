@@ -2,7 +2,7 @@
 	"base_path": "/home/serafeim",
 	"project_slug": "cutter",
 	"repo": "https://github.com/spapas/{{ cookiecutter.project_slug }}/",
-	"serveR_name": "{{ cookiecutter.project_slug }}.hcg.gr",
+	"server_name": "{{ cookiecutter.project_slug }}.hcg.gr",
 	"python": "python3.10",
 	"__project_path": "{{ cookiecutter.base_path }}/{{ cookiecutter.project_slug }}",
 	"__gunicorn_socket": "{{ cookiecutter.__project_path }}/gunicorn.sock"
